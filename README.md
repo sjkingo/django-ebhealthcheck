@@ -13,12 +13,21 @@ requires `/` to return `200 OK`, unless configured differently in EB.
 
 ## Installation
 
-Simply add `ebhealthcheck` to your `INSTALLED_APPS`:
+Simply add `ebhealthcheck` or `ebhealthcheck.apps.EBHealthCheckConfig` to your
+`INSTALLED_APPS`:
 
 ```
 INSTALLED_APPS = [
     ...
     'ebhealthcheck',
+    ...
+]
+```
+
+```
+INSTALLED_APPS = [
+    ...
+    'ebhealthcheck.apps.EBHealthCheckConfig',
     ...
 ]
 ```
