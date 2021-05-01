@@ -2,10 +2,10 @@ from setuptools import find_packages, setup
 
 setup(
     name='django-ebhealthcheck',
-    version='1.0.1',
+    version='2.0.0',
     license='BSD',
     author='Sam Kingston',
-    author_email='sam@sjkwi.com.au',
+    author_email='sjkingo88@gmail.com',
     description='Django app to add an instance\'s public IP to ALLOWED_HOSTS for Elastic Beanstalk\'s health check system',
     long_description=open('README.md', 'r').read(),
     long_description_content_type='text/markdown',

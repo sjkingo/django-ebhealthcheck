@@ -11,6 +11,9 @@ This app dynamically adds your instance's public IP address to Django's
 Note this only adds the host to settings - the health check system still
 requires `/` to return `200 OK`, unless configured differently in EB.
 
+Version 2.0.0 and higher supports IMDSv2. If you are using v1 and cannot upgrade,
+use version 1 of this library instead (`pip install django-ebhealthcheck<2.0.0`).
+
 ## Installation
 
 Simply add `ebhealthcheck.apps.EBHealthCheckConfig` to your `INSTALLED_APPS`:

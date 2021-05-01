@@ -15,14 +15,22 @@ class EBHealthCheckConfig(AppConfig):
         import requests
 
         def get_ec2_instance_ip():
-            try:
-                ip = requests.get(
-                    'http://169.254.169.254/latest/meta-data/local-ipv4',
-                    timeout=0.01
-                ).text
-            except requests.exceptions.ConnectionError:
-                return None
-            return ip
+            metadata_url = "http://169.254.169.254/latest"
+            n = 0
+            while n < 10:
+                try:
+                    token = requests.put(metadata_url + "/api/token", timeout=0.1, headers={
+                        "X-aws-ec2-metadata-token-ttl-seconds": 60,
+                    }).text
+                    ip = requests.get(metadata_url + "/meta-data/local-ipv4", timeout=0.1, headers={
+                        "X-aws-ec2-metadata-token": token,
+                    }).text
+                except requests.exceptions.ConnectionError:
+                    n += 1
+                    continue
+                else:
+                    return ip
+            return None
 
         public_ip = get_ec2_instance_ip()
         if public_ip:
