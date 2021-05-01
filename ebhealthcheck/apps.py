@@ -20,7 +20,7 @@ class EBHealthCheckConfig(AppConfig):
             while n < 10:
                 try:
                     token = requests.put(metadata_url + "/api/token", timeout=0.1, headers={
-                        "X-aws-ec2-metadata-token-ttl-seconds": 60,
+                        "X-aws-ec2-metadata-token-ttl-seconds": "60",
                     }).text
                     ip = requests.get(metadata_url + "/meta-data/local-ipv4", timeout=0.1, headers={
                         "X-aws-ec2-metadata-token": token,
