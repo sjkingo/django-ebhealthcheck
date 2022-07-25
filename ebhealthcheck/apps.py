@@ -25,7 +25,7 @@ class EBHealthCheckConfig(AppConfig):
                     ip = requests.get(metadata_url + "/meta-data/local-ipv4", timeout=0.1, headers={
                         "X-aws-ec2-metadata-token": token,
                     }).text
-                except requests.exceptions.ConnectionError:
+                except requests.exceptions.RequestException:
                     n += 1
                     continue
                 else:
