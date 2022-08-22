@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='django-ebhealthcheck',
-    version='2.0.1',
+    version='2.0.2',
     license='BSD',
     author='Sam Kingston',
     author_email='sjkingo88@gmail.com',

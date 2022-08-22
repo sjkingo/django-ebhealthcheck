@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2 - 2022-08-22
+
+* Retry on invalid header return from EC2 metadata call (@omarryhan)
+
 ## 2.0.1 - 2021-05-01
 
 * Fix header type (@sjkingo)
